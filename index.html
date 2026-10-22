@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17162e">
+  <title>A Little Everyday Magic</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="scene">
+    <div class="eyebrow"><span></span> A SMALL SPELL OF HAPPINESS</div>
+    <h1>A little everyday <em>magic.</em></h1>
+    <p>Move your cursor. Someone magical is paying attention.</p>
+
+    <div class="character" id="character">
+      <svg id="wizard" viewBox="0 0 360 380" role="img"
+           aria-labelledby="wizard-title wizard-description">
+        <title id="wizard-title">Your tiny wizard companion</title>
+        <desc id="wizard-description">
+          A friendly purple wizard with big eyes, rosy cheeks, and a golden star.
+        </desc>
+        <defs>
+          <linearGradient id="hat-color" x2="0.9" y2="1">
+            <stop stop-color="#a99aff"/>
+            <stop offset="1" stop-color="#7460c8"/>
+          </linearGradient>
+          <linearGradient id="robe-color" x2="1" y2="1">
+            <stop stop-color="#9b86ed"/>
+            <stop offset="1" stop-color="#5f4d9e"/>
+          </linearGradient>
+        </defs>
+
+        <ellipse class="ground" cx="180" cy="350" rx="77" ry="12"/>
+
+        <g class="wizard-float">
+          <!-- Small body and sleeves -->
+          <g class="body">
+            <ellipse cx="153" cy="337" rx="22" ry="10" fill="#37304f"/>
+            <ellipse cx="207" cy="337" rx="22" ry="10" fill="#37304f"/>
+            <path d="M144 239 Q180 224 216 239 L237 326
+                     Q180 350 123 326Z" fill="url(#robe-color)"/>
+            <path d="M145 246 Q117 245 105 283 L129 295 151 266"
+                  fill="#8872d1"/>
+            <path d="M215 246 Q244 244 256 280 L234 294 210 267"
+                  fill="#8872d1"/>
+            <ellipse cx="115" cy="289" rx="12" ry="13" fill="#ffd7b6"/>
+            <ellipse cx="247" cy="286" rx="12" ry="13" fill="#ffd7b6"/>
+            <path d="M180 253 L180 331" stroke="#c1aff5"
+                  stroke-width="3" opacity=".55"/>
+            <circle cx="180" cy="276" r="4" fill="#ffe4a2"/>
+            <circle cx="180" cy="298" r="4" fill="#ffe4a2"/>
+            <path d="M147 312 l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"
+                  fill="#ffe4a2" opacity=".8"/>
+          </g>
+
+          <!-- JavaScript moves the head independently -->
+          <g id="head">
+            <g class="head-wiggle">
+              <circle cx="112" cy="195" r="15" fill="#f4bd9e"/>
+              <circle cx="248" cy="195" r="15" fill="#f4bd9e"/>
+              <rect x="111" y="132" width="138" height="119" rx="57"
+                    fill="#ffdbbe"/>
+              <path d="M118 169 Q119 136 145 140 Q169 115 194 137
+                       Q228 128 242 163 Q222 151 215 154
+                       Q184 172 165 153 Q145 170 118 169"
+                    fill="#fff1dc"/>
+
+              <!-- Pupils move separately inside blinking eyes -->
+              <g class="eyes">
+                <ellipse cx="151" cy="190" rx="19" ry="23" fill="#fffaf3"/>
+                <ellipse cx="209" cy="190" rx="19" ry="23" fill="#fffaf3"/>
+                <g id="pupils">
+                  <ellipse cx="153" cy="192" rx="10" ry="14" fill="#30283f"/>
+                  <ellipse cx="207" cy="192" rx="10" ry="14" fill="#30283f"/>
+                  <circle cx="156" cy="186" r="3.5" fill="white"/>
+                  <circle cx="210" cy="186" r="3.5" fill="white"/>
+                </g>
+              </g>
+
+              <ellipse cx="132" cy="215" rx="13" ry="7" fill="#ef9f9c" opacity=".7"/>
+              <ellipse cx="228" cy="215" rx="13" ry="7" fill="#ef9f9c" opacity=".7"/>
+              <path d="M174 208 Q180 213 186 208" fill="none"
+                    stroke="#d49780" stroke-width="3" stroke-linecap="round"/>
+              <path d="M168 224 Q180 237 192 224" fill="none"
+                    stroke="#925666" stroke-width="3.5" stroke-linecap="round"/>
+
+              <!-- Tilted hat and its independently animated charm -->
+              <g id="hat" transform="rotate(-8 180 142)">
+                <path d="M124 140 Q143 91 174 45 Q188 27 218 36
+                         L204 60 Q203 93 235 140Z"
+                      fill="url(#hat-color)"/>
+                <path d="M133 119 Q180 131 225 119 L233 140
+                         Q181 156 124 140Z" fill="#504078"/>
+                <ellipse cx="179" cy="143" rx="83" ry="16" fill="#917bdc"/>
+                <path d="M143 140 Q181 148 223 139" fill="none"
+                      stroke="#bba7ff" stroke-width="3" stroke-linecap="round"/>
+                <g class="hat-star">
+                  <path d="m177 76 4 9 10 1-8 7 2 10-8-5-9 5 2-10-7-7 10-1Z"
+                        fill="#ffe4a2"/>
+                </g>
+              </g>
+            </g>
+          </g>
+
+          <!-- Wand -->
+          <g transform="rotate(18 250 265)">
+            <path d="M250 287 V240" stroke="#e4b987"
+                  stroke-width="6" stroke-linecap="round"/>
+            <path d="m250 220 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2Z"
+                  fill="#ffe4a2"/>
+          </g>
+        </g>
+
+        <g class="sparkles" fill="#ffe4a2" aria-hidden="true">
+          <path class="sparkle s1" d="m72 145 3 9 9 3-9 3-3 9-3-9-9-3 9-3Z"/>
+          <path class="sparkle s2" d="m284 107 3 9 9 3-9 3-3 9-3-9-9-3 9-3Z"/>
+          <path class="sparkle s3" d="m285 224 2 7 7 2-7 2-2 7-2-7-7-2 7-2Z"/>
+          <circle class="sparkle s4" cx="89" cy="245" r="3"/>
+        </g>
+      </svg>
+      <span class="character-note" aria-hidden="true">your pocket-sized wizard</span>
+    </div>
+
+    <button id="spell-button" type="button">
+      <span aria-hidden="true">✦</span> Cast a little joy
+    </button>
+    <div class="spell-message" id="spell-message" role="status" aria-live="polite">
+      A little wonder goes a long way.
+    </div>
+  </main>
+</body>
+</html>
